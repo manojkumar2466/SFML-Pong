@@ -1,9 +1,11 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include "D:\unity\repos\SFML-Pong\Header\GameWindowManager.h"
+
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+   /* sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
     sf::CircleShape shape(100.f);
     shape.setFillColor(sf::Color::Green);
 
@@ -19,5 +21,12 @@ int main()
         window.clear();
         window.draw(shape);
         window.display();
+    }*/
+
+    Core::GameWindowManager gameWindowManager;
+    gameWindowManager.Initialize();
+    while (gameWindowManager.IsGameRunning()) {
+        gameWindowManager.Render();
     }
+    return 0;
 }
