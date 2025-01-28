@@ -1,6 +1,7 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "D:\unity\repos\SFML-Pong\Header\GameWindowManager.h"
+#include "D:\unity\repos\SFML-Pong\Header\Event\EventManager.h"
 
 
 int main()
@@ -24,8 +25,10 @@ int main()
     }*/
 
     Core::GameWindowManager gameWindowManager;
+    MyEvent::EventManager eventManager;
     gameWindowManager.Initialize();
     while (gameWindowManager.IsGameRunning()) {
+        eventManager.PollEvents(gameWindowManager.GetGameWindow());
         gameWindowManager.Render();
     }
     return 0;
