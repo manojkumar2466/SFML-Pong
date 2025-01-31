@@ -11,5 +11,7 @@ namespace MyEvent {
 		void PollEvents(RenderWindow* game_Window);
 
 		bool IsKeyPressed(sf::Keyboard::Key key);
+
+		bool ISMouseLeftButtonClicked();
 	};
 }

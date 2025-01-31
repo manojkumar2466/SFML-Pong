@@ -6,7 +6,7 @@ namespace Core {
 	}
 
 	void GameWindowManager::CreateGameWindow() {
-		game_Window->create(sf::VideoMode::getDesktopMode(), game_Title, sf::Style::Fullscreen);
+		game_Window->create(sf::VideoMode::getDesktopMode(), game_Title, sf::Style::Default);
 	}
 
 	bool GameWindowManager::IsGameRunning() {
