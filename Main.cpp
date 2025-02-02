@@ -2,7 +2,9 @@
 #include <SFML/Graphics.hpp>
 #include "D:\unity\repos\SFML-Pong\Header\GameWindowManager.h"
 #include "D:\unity\repos\SFML-Pong\Header\Event\EventManager.h"
+#include "D:\unity\repos\SFML-Pong\Header\GameLoop.h"
 
+//using namespace Core;
 
 int main()
 {
@@ -24,12 +26,18 @@ int main()
         window.display();
     }*/
 
-    Core::GameWindowManager gameWindowManager;
+   /* Core::GameWindowManager gameWindowManager;
     MyEvent::EventManager eventManager;
     gameWindowManager.Initialize();
     while (gameWindowManager.IsGameRunning()) {
         eventManager.PollEvents(gameWindowManager.GetGameWindow());
-        gameWindowManager.Render();
+    }*/
+    Core:: GameLoop* gameLoop;
+    gameLoop->Initialize();
+    while (gameLoop->IsGameRunning()) {
+        gameLoop->PollEvent();
+        gameLoop->Update();
+        gameLoop->Render();
     }
     return 0;
 }

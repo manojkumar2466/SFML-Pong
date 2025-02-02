@@ -21,6 +21,8 @@ namespace Core {
 		RenderWindow* GetGameWindow();
 		bool IsGameRunning();
 		void Render();
+		void ClearGameWindow();
+		void DisplayGameWindow();
 
 	};
 }

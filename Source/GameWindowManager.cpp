@@ -13,9 +13,14 @@ namespace Core {
 		return game_Window->isOpen();
 	}
 
-	void GameWindowManager::Render() {
 
-		game_Window->clear(sf::Color(100, 150, 150, 200));
+	void GameWindowManager::ClearGameWindow()
+	{
+		game_Window->clear(sf::Color(140, 130, 100, 200));
+	}
+
+	void GameWindowManager::DisplayGameWindow()
+	{
 		game_Window->display();
 	}
 
