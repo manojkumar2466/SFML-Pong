@@ -1,4 +1,5 @@
-#include "D:\unity\repos\SFML-Pong\Header\GameLoop.h"
+#include "D:\unity\repos\SFML-Pong\Header\Core\GameLoop.h"
+#include "D:\unity\repos\SFML-Pong\Header\Core\GameWindowManager.h"
 
 namespace Core {
 	void GameLoop::Initialize()
@@ -7,6 +8,9 @@ namespace Core {
 		
 		event_Manager = new EventManager();
 		game_Window_Manager->Initialize();
+		gameplayManager = new GamePlayManager();
+		
+
 	}
 
 	void GameLoop::Update()
@@ -22,7 +26,9 @@ namespace Core {
 	void GameLoop::Render()
 	{
 		game_Window_Manager->ClearGameWindow();
+		gameplayManager->Render(game_Window_Manager->GetGameWindow());
 		game_Window_Manager->DisplayGameWindow();
+		
 	}
 
 	void GameLoop::PollEvent()

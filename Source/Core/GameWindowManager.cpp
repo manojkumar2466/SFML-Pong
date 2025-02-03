@@ -1,4 +1,4 @@
-#include "D:\unity\repos\SFML-Pong\Header\GameWindowManager.h"
+#include "D:\unity\repos\SFML-Pong\Header\Core\GameWindowManager.h"
 namespace Core {
 	void GameWindowManager::Initialize() {
 		game_Window = new RenderWindow();
