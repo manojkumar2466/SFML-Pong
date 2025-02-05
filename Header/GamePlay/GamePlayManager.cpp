@@ -4,14 +4,19 @@ namespace GamePlay {
 
 
 
-	GamePlayManager::GamePlayManager()
+	GamePlayManager::GamePlayManager(EventManager* event_manager)
 	{
-
+		this->event_manager = event_manager;
 		Initialize();
 	}
 
 	void GamePlayManager::Update()
 	{
+		ball->Update();
+		leftPaddle->Update(event_manager->IsKeyPressed(sf::Keyboard::W),event_manager
+		->IsKeyPressed(sf::Keyboard::S));
+		rightPaddle->Update(event_manager->IsKeyPressed(sf::Keyboard::Up), event_manager
+			->IsKeyPressed(sf::Keyboard::Down));
 	}
 
 	void GamePlay::GamePlayManager::Initialize()

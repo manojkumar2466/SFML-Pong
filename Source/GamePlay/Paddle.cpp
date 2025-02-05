@@ -4,6 +4,18 @@ namespace Core {
 
 }
 
+void GamePlay::Paddle::MovePaddle(bool up_key_pressed, bool down_key_pressed)
+{
+	if (up_key_pressed)
+	{
+		paddle_Sprite.move(0, -speed);
+	}
+	else if (down_key_pressed)
+	{
+		paddle_Sprite.move(0, speed);
+	}
+}
+
 GamePlay::Paddle::Paddle(float xPos, float yPos)
 {
 	paddle_Sprite.setSize(Vector2f(width, height));
@@ -12,8 +24,9 @@ GamePlay::Paddle::Paddle(float xPos, float yPos)
 
 }
 
-void GamePlay::Paddle::Update()
+void GamePlay::Paddle::Update(bool up_key_pressed, bool down_key_pressed)
 {
+	MovePaddle(up_key_pressed, down_key_pressed);
 }
 
 void GamePlay::Paddle::Render(RenderWindow* game_Window)

@@ -25,9 +25,14 @@ namespace GamePlay {
 	}
 	void Ball::Update()
 	{
+		Move();
 	}
 	void Ball::Render(RenderWindow* gameWindow)
 	{
 		gameWindow->draw(ball_sprite);
+	}
+	void Ball::Move()
+	{
+		ball_sprite.move(velocity);
 	}
 }

@@ -8,14 +8,14 @@ namespace Core {
 		
 		event_Manager = new EventManager();
 		game_Window_Manager->Initialize();
-		gameplayManager = new GamePlayManager();
+		gameplayManager = new GamePlayManager(event_Manager);
 		
 
 	}
 
 	void GameLoop::Update()
 	{
-
+		gameplayManager->Update();
 	}
 
 	bool GameLoop::IsGameRunning()
