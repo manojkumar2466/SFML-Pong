@@ -7,6 +7,7 @@ namespace GamePlay {
 	GamePlayManager::GamePlayManager(EventManager* event_manager)
 	{
 		this->event_manager = event_manager;
+		boundary = new Boundary();
 		Initialize();
 	}
 
@@ -31,6 +32,7 @@ namespace GamePlay {
 
 	void GamePlayManager::Render(RenderWindow* game_Window)
 	{
+		boundary->Render(game_Window);
 		leftPaddle->Render(game_Window);
 		rightPaddle->Render(game_Window);
 		ball->Render(game_Window);
