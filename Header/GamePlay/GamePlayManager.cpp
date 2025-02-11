@@ -13,7 +13,7 @@ namespace GamePlay {
 
 	void GamePlayManager::Update()
 	{
-		ball->Update();
+		ball->Update(leftPaddle, rightPaddle);
 		leftPaddle->Update(event_manager->IsKeyPressed(sf::Keyboard::W),event_manager
 		->IsKeyPressed(sf::Keyboard::S));
 		rightPaddle->Update(event_manager->IsKeyPressed(sf::Keyboard::Up), event_manager
