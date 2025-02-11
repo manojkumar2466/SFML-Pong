@@ -4,6 +4,7 @@
 #include "Ball.h"
 #include "Paddle.h"
 #include "D:\unity\repos\SFML-Pong\Header\Event\EventManager.h"
+#include "D:\unity\repos\SFML-Pong\Header\GamePlay\Boundry\Boundary.h"
 
 using namespace MyEvent;
 namespace GamePlay {
@@ -21,6 +22,7 @@ namespace GamePlay {
 		Paddle* rightPaddle;
 
 		EventManager* event_manager;
+		Boundary* boundary;
 		void Initialize();
 
 	public:
