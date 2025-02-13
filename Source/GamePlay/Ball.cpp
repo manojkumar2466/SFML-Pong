@@ -74,19 +74,29 @@ namespace GamePlay {
 		InitializeVariables();
 
 	}
-	void Ball::Update(Paddle* left_paddle, Paddle* right_paddle)
+	void Ball::Update(Paddle* left_paddle, Paddle* right_paddle, TimeService* timeService)
 	{
-		Move();
+		if (current_ball_state == BallState::moving) {
+			Move(timeService);
+		}
+		
 		OnCollision(left_paddle, right_paddle);
+		time_elapsed += timeService->GetDeltaTime();
+		if (current_ball_state == BallState::idle && time_elapsed >= 2.f) {
+			current_ball_state = BallState::moving;
+			cout << endl << "ball speed is 500";
+
+		}
 		
 	}
 	void Ball::Render(RenderWindow* gameWindow)
 	{
 		gameWindow->draw(ball_sprite);
 	}
-	void Ball::Move()
+	void Ball::Move(TimeService* timeService)
 	{
-		ball_sprite.move(ball_velocity);
+		
+		ball_sprite.move(ball_velocity *timeService->GetDeltaTime());
 	}
 	void Ball::HandlePaddleCollision(Paddle* left_paddle, Paddle* right_paddle)
 	{

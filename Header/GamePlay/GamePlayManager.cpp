@@ -8,16 +8,19 @@ namespace GamePlay {
 	{
 		this->event_manager = event_manager;
 		boundary = new Boundary();
+		timeService = new TimeService();
+		timeService->Initialize();
 		Initialize();
 	}
 
 	void GamePlayManager::Update()
 	{
-		ball->Update(leftPaddle, rightPaddle);
+		timeService->Update();
+		ball->Update(leftPaddle, rightPaddle, timeService);
 		leftPaddle->Update(event_manager->IsKeyPressed(sf::Keyboard::W),event_manager
-		->IsKeyPressed(sf::Keyboard::S));
+		->IsKeyPressed(sf::Keyboard::S), timeService);
 		rightPaddle->Update(event_manager->IsKeyPressed(sf::Keyboard::Up), event_manager
-			->IsKeyPressed(sf::Keyboard::Down));
+			->IsKeyPressed(sf::Keyboard::Down), timeService);
 	}
 
 	void GamePlay::GamePlayManager::Initialize()

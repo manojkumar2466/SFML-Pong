@@ -15,7 +15,7 @@ namespace Utility
 		void UpdatePreviousTime();
 
 	public:
-		void Initialie();
+		void Initialize();
 		void Update();
 		float GetDeltaTime();
 	};

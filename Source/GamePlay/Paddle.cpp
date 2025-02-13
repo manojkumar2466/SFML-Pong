@@ -3,15 +3,15 @@
 namespace GamePlay {
 
 
-	void GamePlay::Paddle::MovePaddle(bool up_key_pressed, bool down_key_pressed)
+	void GamePlay::Paddle::MovePaddle(bool up_key_pressed, bool down_key_pressed, TimeService* timeService)
 	{
 		if (up_key_pressed && paddle_Sprite.getPosition().y > top_boundary)
 		{
-			paddle_Sprite.move(0, -speed);
+			paddle_Sprite.move(0, -speed* timeService->GetDeltaTime());
 		}
 		else if (down_key_pressed && paddle_Sprite.getPosition().y < bottom_boundary)
 		{
-			paddle_Sprite.move(0, speed);
+			paddle_Sprite.move(0, speed * timeService->GetDeltaTime());
 		}
 	}
 
@@ -28,9 +28,9 @@ namespace GamePlay {
 		return paddle_Sprite;
 	}
 
-	void GamePlay::Paddle::Update(bool up_key_pressed, bool down_key_pressed)
+	void GamePlay::Paddle::Update(bool up_key_pressed, bool down_key_pressed, TimeService* timeService)
 	{
-		MovePaddle(up_key_pressed, down_key_pressed);
+		MovePaddle(up_key_pressed, down_key_pressed, timeService);
 	}
 
 	void GamePlay::Paddle::Render(RenderWindow* game_Window)
