@@ -1,5 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include <string>
 
 using namespace sf;
 
@@ -26,6 +27,7 @@ namespace UI {
 		float right_score_y_pos = 25.f;
 
 		int player1_score = 0;
+		int player2_score = 0;
 
 
 		void  LoadFontTexture();
@@ -36,8 +38,10 @@ namespace UI {
 		void Render(RenderWindow* gameWindow);
 
 		void Initialize();
+		void IncreasePlayer1Score();
+		void IncreasePlayer2Score();
 
-
+		String FormatString(int score);
 		
 	public:
 		UIService();

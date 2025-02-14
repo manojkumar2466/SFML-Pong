@@ -39,6 +39,23 @@ namespace UI {
 		CreateRightScoreText();
 	}
 
+	void UIService::IncreasePlayer1Score()
+	{
+		player1_score++;
+	}
+
+	void UIService::IncreasePlayer2Score()
+	{
+
+		player2_score++;
+
+	}
+
+	String UIService::FormatString(int score)
+	{
+		return (score < 10 ? "0" : "") + std::to_string(score);
+	}
+
 	UIService::UIService()
 	{
 		Initialize();
@@ -47,6 +64,8 @@ namespace UI {
 	void UIService::Update(RenderWindow* gameWindow)
 	{
 		Render(gameWindow);
+		left_score_text.setString(FormatString(player1_score));
+		right_score_text.setString(FormatString(player2_score));
 	}
 	
 }
