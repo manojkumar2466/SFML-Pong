@@ -6,9 +6,12 @@
 #include "D:\unity\repos\SFML-Pong\Header\Event\EventManager.h"
 #include "D:\unity\repos\SFML-Pong\Header\GamePlay\Boundry\Boundary.h"
 #include "D:/unity/repos/SFML-Pong/Header/Utility/TimeService.h"
+#include "D:/unity/repos/SFML-Pong/Header/UI/UIService.h"
 
 using namespace MyEvent;
 using namespace Utility;
+using namespace UI;
+
 namespace GamePlay {
 
 	class GamePlayManager {
@@ -26,6 +29,7 @@ namespace GamePlay {
 		EventManager* event_manager;
 		Boundary* boundary;
 		TimeService* timeService;
+		UIService* UI;
 		void Initialize();
 
 	public:

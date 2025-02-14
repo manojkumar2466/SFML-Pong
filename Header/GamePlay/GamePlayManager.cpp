@@ -26,7 +26,7 @@ namespace GamePlay {
 	void GamePlay::GamePlayManager::Initialize()
 	{
 		ball = new Ball();
-
+		UI = new UIService();
 		leftPaddle = new Paddle(leftPaddle_X_Pos, leftPaddle_Y_Pos);
 		rightPaddle = new Paddle(rightPaddle_X_Pos, rightPaddle_Y_Pos);
 
@@ -35,6 +35,7 @@ namespace GamePlay {
 
 	void GamePlayManager::Render(RenderWindow* game_Window)
 	{
+		UI->Update(game_Window);
 		boundary->Render(game_Window);
 		leftPaddle->Render(game_Window);
 		rightPaddle->Render(game_Window);
