@@ -15,6 +15,8 @@ namespace GamePlay {
 
 	void GamePlayManager::Update()
 	{
+		UpdateScore();
+		UI->Update();
 		timeService->Update();
 		ball->Update(leftPaddle, rightPaddle, timeService);
 		leftPaddle->Update(event_manager->IsKeyPressed(sf::Keyboard::W),event_manager
@@ -33,9 +35,33 @@ namespace GamePlay {
 
 	}
 
+	void GamePlayManager::UpdateScore()
+	{
+		if (ball->IsLeftCollisionOccured()) {
+			UI->IncreasePlayer2Score();
+			ball->UpdateLeftCollision(false);
+			ResetGame();
+		}
+		else if (ball->IsRightCollisionOccured()) {
+			UI->IncreasePlayer1Score();
+			ball->UpdateRightCollision(false);
+			ResetGame();
+		}
+
+	}
+
+	void GamePlayManager::ResetGame()
+	{
+		leftPaddle->Reset(leftPaddle_X_Pos, leftPaddle_Y_Pos);
+		rightPaddle->Reset(rightPaddle_X_Pos, rightPaddle_Y_Pos);
+		
+	}
+
+	
+
 	void GamePlayManager::Render(RenderWindow* game_Window)
 	{
-		UI->Update(game_Window);
+		UI->Render(game_Window);
 		boundary->Render(game_Window);
 		leftPaddle->Render(game_Window);
 		rightPaddle->Render(game_Window);

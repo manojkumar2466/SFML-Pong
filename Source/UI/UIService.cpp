@@ -61,9 +61,8 @@ namespace UI {
 		Initialize();
 	}
 
-	void UIService::Update(RenderWindow* gameWindow)
+	void UIService::Update()
 	{
-		Render(gameWindow);
 		left_score_text.setString(FormatString(player1_score));
 		right_score_text.setString(FormatString(player2_score));
 	}

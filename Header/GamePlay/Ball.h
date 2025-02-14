@@ -38,7 +38,11 @@ namespace GamePlay {
 
 		float center_x_pos = 975;
 		float center_y_pos = 485;
+
+		bool has_left_collision = false;
+		bool has_right_collision = false;
 		
+		float stop_ball_for_seconds = 2.f;
 
 		void LoadTexture();
 		void InitializeVariables();
@@ -53,6 +57,12 @@ namespace GamePlay {
 		void Render(RenderWindow* gameWindow);
 		void Move(TimeService* timeService);
 		void HandlePaddleCollision(Paddle* left_paddle, Paddle* right_paddle);
+
+		bool IsLeftCollisionOccured();
+		void UpdateLeftCollision(bool value);
+
+		bool IsRightCollisionOccured();
+		void UpdateRightCollision(bool value);
 
 	};
 }

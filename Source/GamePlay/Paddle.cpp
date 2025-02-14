@@ -23,6 +23,11 @@ namespace GamePlay {
 
 	}
 
+	void Paddle::Reset(float x_pos, float y_pos)
+	{
+		paddle_Sprite.setPosition(x_pos, y_pos);
+	}
+
 	RectangleShape GamePlay::Paddle::GetPaddleSprite()
 	{
 		return paddle_Sprite;

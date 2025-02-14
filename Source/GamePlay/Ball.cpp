@@ -40,11 +40,13 @@ namespace GamePlay {
 
 		if (ball_boundary.left <= left_boundary)
 		{
+			UpdateLeftCollision(true);
 			Reset();
 			cout << endl << "left boundary hit";
 		}
 		if (ball_boundary.left + ball_boundary.width >= right_boundary)
 		{
+			UpdateRightCollision(true);
 			Reset();
 			cout << endl << "right boundary hit";
 		}
@@ -53,6 +55,8 @@ namespace GamePlay {
 
 	void Ball::Reset()
 	{
+		stop_ball_for_seconds = time_elapsed+2;
+		current_ball_state = BallState::idle;
 		ball_sprite.setPosition(center_x_pos, center_y_pos);
 		ball_velocity = Vector2f(ball_speed, ball_speed);
 	}
@@ -82,7 +86,7 @@ namespace GamePlay {
 		
 		OnCollision(left_paddle, right_paddle);
 		time_elapsed += timeService->GetDeltaTime();
-		if (current_ball_state == BallState::idle && time_elapsed >= 2.f) {
+		if (current_ball_state == BallState::idle && time_elapsed >= stop_ball_for_seconds) {
 			current_ball_state = BallState::moving;
 			cout << endl << "ball speed is 500";
 
@@ -115,5 +119,22 @@ namespace GamePlay {
 		{
 			ball_velocity.x = -ball_velocity.x;
 		}
+	}
+
+	bool Ball::IsLeftCollisionOccured()
+	{
+		return has_left_collision;
+	}
+	void Ball::UpdateLeftCollision(bool value)
+	{
+		has_left_collision = value;
+	}
+	bool Ball::IsRightCollisionOccured()
+	{
+		return has_right_collision;
+	}
+	void Ball::UpdateRightCollision(bool value)
+	{
+		has_right_collision = value;
 	}
 }
