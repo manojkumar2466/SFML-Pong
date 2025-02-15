@@ -9,6 +9,7 @@ namespace Core {
 		event_Manager = new EventManager();
 		game_Window_Manager->Initialize();
 		gameplayManager = new GamePlayManager(event_Manager);
+		soundManager = new SoundManager();
 		
 
 	}
