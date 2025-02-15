@@ -140,6 +140,12 @@
     <ClCompile Include="Source\Core\GameLoop.cpp" />
     <ClCompile Include="Source\GamePlay\Ball.cpp" />
     <ClCompile Include="Source\GamePlay\Paddle.cpp" />
+<<<<<<< Updated upstream
+=======
+    <ClCompile Include="Source\Sound\SoundManager.cpp" />
+    <ClCompile Include="Source\UI\UIService.cpp" />
+    <ClCompile Include="Source\Utility\TimeService.cpp" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Header\Core\GameWindowManager.h" />
@@ -148,6 +154,12 @@
     <ClInclude Include="Header\GamePlay\Ball.h" />
     <ClInclude Include="Header\GamePlay\GamePlayManager.h" />
     <ClInclude Include="Header\GamePlay\Paddle.h" />
+<<<<<<< Updated upstream
+=======
+    <ClInclude Include="Header\Sound\SoundManager.h" />
+    <ClInclude Include="Header\UI\UIService.h" />
+    <ClInclude Include="Header\Utility\TimeService.h" />
+>>>>>>> Stashed changes
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
